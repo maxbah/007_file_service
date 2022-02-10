@@ -5,7 +5,6 @@ from mock import mock_open
 import mock
 
 
-
 def test_create_file_success(mocker):
     """
     Test create file positive
@@ -17,7 +16,7 @@ def test_create_file_success(mocker):
     test_file_name = "test_random_string"
     mocker.patch("src.utils.random_file_name").return_value = test_file_name
 
-    file_service.create_file("blabla")
+    file_service.create("blabla")
 
     mocked_open.assert_called_with(test_file_name, "w")
     mocked_open().write.assert_called_with("blabla")
@@ -66,7 +65,8 @@ def test_create_file_duplicate(mocker):
         return second_test_filename
     rand_string_mock.side_effect = random_string_side_effect
 
-    file_service.create_file("blabla")
+    file_service.create("blabla")
+
     assert path_exist_mock.mock_calls == [mock.call(test_filename), mock.call(second_test_filename)]
     mocked_open.assert_called_with(second_test_filename, 'w')
     mocked_open().write.assert_called_with("blabla")
@@ -129,16 +129,18 @@ def test_get_metadata(mocker):
     :return: None
     """
     test_filename = 'test_file'
-    create_date_mock = mocker.patch('os.path.getctime')
-    create_date_mock.return_value = 123
-    modification_date = mocker.patch('os.path.getmtime')
-    modification_date.return_value = 456
+    get_metadata_mock = mocker.patch('src.file_service.get_file_metadata')
+    get_metadata_mock.return_value = ('Jan 01 1970 02:07:36', 'Jan 01 1970 02:07:36', 789)
+
+    create_date_mock = mocker.patch('src.utils.get_human_date')
+    create_date_mock.return_value = 'Jan 01 1970 02:07:36'
     file_size_mock = mocker.patch('os.path.getsize')
     file_size_mock.return_value = 789
 
     res = file_service.get_file_metadata(test_filename)
 
-    assert res == ((123, 456, 789),)
+    get_metadata_mock.assert_called_with(test_filename)
+    assert res == ('Jan 01 1970 02:07:36', 'Jan 01 1970 02:07:36', 789)
 
 
 def test_non_existing_file_metadata(mocker):
