@@ -1,0 +1,32 @@
+version: 1
+disable_existing_loggers: true
+
+formatters:
+  simple:
+    # https://docs.python.org/3/library/logging.html#logrecord-attributes
+    format: '[%(asctime)s] %(filename)s:%(lineno)d:%(message)s'
+  short:
+    format: '%(asctime)s - %(message)s'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: ERROR
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: simple
+    filename: file_server_007.log
+  telemetry:
+    class: logging.FileHandler
+    level: INFO
+    formatter: short
+    filename: telemetry.log
+loggers:
+  telemetry:
+    handlers: [telemetry]
+root:
+  level: DEBUG
+  handlers: [console,file]

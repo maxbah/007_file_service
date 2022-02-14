@@ -40,7 +40,7 @@ def test_create_file_duplicate(mocker):
     def on_path_exist_call(filename: str) -> bool:
         """
         Func to check path exists
-        :param filename: Name of file
+        :param filename: Name of filehttps://luxoft.zoom.us/meeting/register/tJcqcOihrTMuGtcWnVHUPH2-VSMEc0jgfyEt
         :return: Bool
         """
         nonlocal path_exist_call_count

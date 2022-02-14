@@ -1,7 +1,12 @@
 import string
 import random
+import uuid
 from time import time
 from datetime import datetime
+
+
+def random_string(length):
+    return str(uuid.uuid4())[:length]
 
 
 def random_file_name() -> str:

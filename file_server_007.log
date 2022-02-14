@@ -1,0 +1,132 @@
+[2022-02-13 23:09:10,663] main.py:197:Start main.py execution
+[2022-02-13 23:09:10,668] main.py:206:Data from src/config/config.ini loaded
+[2022-02-13 23:10:16,477] file_services.py:52:Start file creation
+[2022-02-13 23:10:16,487] file_services.py:41:Writing to: 5SJW05_1644786616.4770956
+Content: Create file with content
+[2022-02-13 23:10:39,779] file_services.py:14:Start read file
+[2022-02-13 23:11:23,182] file_services.py:70:Start creation file with sign
+[2022-02-13 23:11:23,182] file_services.py:52:Start file creation
+[2022-02-13 23:11:23,182] file_services.py:41:Writing to: QTJ888_1644786683.1822007
+Content: Signature file content
+[2022-02-13 23:11:23,192] file_services.py:74:Class signer type: <class 'src.crypto.signature.Md5umSign'>
+[2022-02-13 23:11:23,192] file_services.py:41:Writing to: QTJ888_1644786683.1822007.md5
+Content: a028bc2747d766b5534599946ebf3f25
+[2022-02-13 23:11:36,420] file_services.py:96:Start list dir
+[2022-02-13 23:11:44,505] file_services.py:144:Start get cwd
+[2022-02-13 23:11:58,413] file_services.py:156:Start get file metadata
+[2022-02-13 23:12:41,108] encription.py:50:Key generation started
+[2022-02-13 23:28:35,993] main.py:215:Start main.py execution
+[2022-02-13 23:28:35,998] main.py:224:Data from src/config/config.ini loaded
+[2022-02-13 23:28:58,808] encription.py:50:Key generation started
+[2022-02-13 23:29:39,085] encription.py:59:Start data encryption 
+[2022-02-13 23:29:39,085] encription.py:50:Key generation started
+[2022-02-13 23:33:43,634] main.py:219:Start main.py execution
+[2022-02-13 23:33:43,639] main.py:228:Data from src/config/config.ini loaded
+[2022-02-13 23:34:00,919] encription.py:50:Key generation started
+[2022-02-13 23:34:39,979] encription.py:59:Start data encryption 
+[2022-02-13 23:34:39,979] encription.py:50:Key generation started
+[2022-02-13 23:36:19,813] main.py:219:Start main.py execution
+[2022-02-13 23:36:19,817] main.py:228:Data from src/config/config.ini loaded
+[2022-02-13 23:36:36,071] encription.py:50:Key generation started
+[2022-02-13 23:37:03,114] encription.py:59:Start data encryption 
+[2022-02-13 23:37:03,114] encription.py:50:Key generation started
+[2022-02-13 23:40:36,379] main.py:215:Start main.py execution
+[2022-02-13 23:40:36,384] main.py:224:Data from src/config/config.ini loaded
+[2022-02-13 23:40:53,365] encription.py:50:Key generation started
+[2022-02-13 23:41:07,050] encription.py:59:Start data encryption 
+[2022-02-13 23:41:07,050] encription.py:50:Key generation started
+[2022-02-13 23:41:45,400] main.py:215:Start main.py execution
+[2022-02-13 23:41:45,405] main.py:224:Data from src/config/config.ini loaded
+[2022-02-13 23:41:50,092] encription.py:50:Key generation started
+[2022-02-13 23:42:00,287] encription.py:59:Start data encryption 
+[2022-02-13 23:42:00,287] encription.py:50:Key generation started
+[2022-02-13 23:43:14,062] encription.py:59:Start data encryption 
+[2022-02-13 23:43:14,062] encription.py:50:Key generation started
+[2022-02-13 23:45:19,470] main.py:215:Start main.py execution
+[2022-02-13 23:45:19,475] main.py:224:Data from src/config/config.ini loaded
+[2022-02-13 23:45:24,047] encription.py:50:Key generation started
+[2022-02-13 23:45:31,848] encription.py:59:Start data encryption 
+[2022-02-13 23:45:31,848] encription.py:50:Key generation started
+[2022-02-13 23:52:57,303] main.py:215:Start main.py execution
+[2022-02-13 23:52:57,308] main.py:224:Data from src/config/config.ini loaded
+[2022-02-13 23:53:11,605] main.py:215:Start main.py execution
+[2022-02-13 23:53:11,609] main.py:224:Data from src/config/config.ini loaded
+[2022-02-13 23:53:27,824] encription.py:50:Key generation started
+[2022-02-13 23:53:35,322] encription.py:59:Start data encryption 
+[2022-02-13 23:53:35,322] encription.py:50:Key generation started
+[2022-02-14 00:00:33,270] main.py:215:Start main.py execution
+[2022-02-14 00:00:33,274] main.py:224:Data from src/config/config.ini loaded
+[2022-02-14 00:00:43,130] encription.py:50:Key generation started
+[2022-02-14 00:00:51,227] encription.py:59:Start data encryption 
+[2022-02-14 00:00:51,227] encription.py:50:Key generation started
+[2022-02-14 00:10:03,596] main.py:217:Start main.py execution
+[2022-02-14 00:10:03,596] main.py:226:Data from src/config/config.ini loaded
+[2022-02-14 00:10:14,197] main.py:217:Start main.py execution
+[2022-02-14 00:10:14,201] main.py:226:Data from src/config/config.ini loaded
+[2022-02-14 00:10:23,928] encription.py:50:Key generation started
+[2022-02-14 00:10:34,789] encription.py:59:Start data encryption 
+[2022-02-14 00:10:34,789] encription.py:50:Key generation started
+[2022-02-14 00:10:34,789] encription.py:59:Start data encryption 
+[2022-02-14 00:10:34,789] encription.py:50:Key generation started
+[2022-02-14 00:21:46,052] main.py:216:Start main.py execution
+[2022-02-14 00:21:46,056] main.py:225:Data from src/config/config.ini loaded
+[2022-02-14 00:21:52,759] encription.py:50:Key generation started
+[2022-02-14 00:22:09,259] encription.py:59:Start data encryption 
+[2022-02-14 00:22:09,259] encription.py:50:Key generation started
+[2022-02-14 00:22:09,259] encription.py:59:Start data encryption 
+[2022-02-14 00:22:09,259] encription.py:50:Key generation started
+[2022-02-14 00:22:43,314] encription.py:59:Start data encryption 
+[2022-02-14 00:22:43,314] encription.py:50:Key generation started
+[2022-02-14 00:22:43,314] encription.py:59:Start data encryption 
+[2022-02-14 00:22:43,314] encription.py:50:Key generation started
+[2022-02-14 00:22:43,314] encription.py:75:Start data decryption 
+[2022-02-14 01:08:54,482] main.py:208:Start main.py execution
+[2022-02-14 01:08:54,482] main.py:217:Data from src/config/config.ini loaded
+[2022-02-14 01:09:07,219] main.py:208:Start main.py execution
+[2022-02-14 01:09:07,229] main.py:217:Data from src/config/config.ini loaded
+[2022-02-14 01:09:18,852] encription.py:46:Start data encryption 
+[2022-02-14 01:09:38,784] encription.py:61:Start data decryption 
+[2022-02-14 01:10:11,690] main.py:208:Start main.py execution
+[2022-02-14 01:10:11,700] main.py:217:Data from src/config/config.ini loaded
+[2022-02-14 01:10:17,506] encription.py:46:Start data encryption 
+[2022-02-14 01:10:28,608] encription.py:61:Start data decryption 
+[2022-02-14 01:11:10,035] main.py:208:Start main.py execution
+[2022-02-14 01:11:10,038] main.py:217:Data from src/config/config.ini loaded
+[2022-02-14 01:11:18,854] encription.py:46:Start data encryption 
+[2022-02-14 01:12:54,353] encription.py:46:Start data encryption 
+[2022-02-14 01:14:40,307] main.py:210:Start main.py execution
+[2022-02-14 01:14:40,312] main.py:219:Data from src/config/config.ini loaded
+[2022-02-14 01:14:53,694] encription.py:46:Start data encryption 
+[2022-02-14 01:15:42,057] encription.py:61:Start data decryption 
+[2022-02-14 01:17:38,221] main.py:210:Start main.py execution
+[2022-02-14 01:17:38,224] main.py:219:Data from src/config/config.ini loaded
+[2022-02-14 01:17:44,325] encription.py:46:Start data encryption 
+[2022-02-14 01:19:05,272] main.py:210:Start main.py execution
+[2022-02-14 01:19:05,282] main.py:219:Data from src/config/config.ini loaded
+[2022-02-14 01:19:12,951] encription.py:46:Start data encryption 
+[2022-02-14 01:19:30,141] encription.py:61:Start data decryption 
+[2022-02-14 01:24:01,786] main.py:202:Start main.py execution
+[2022-02-14 01:24:01,786] main.py:211:Data from src/config/config.ini loaded
+[2022-02-14 01:24:23,029] encription.py:46:Start data encryption 
+[2022-02-14 01:28:04,967] main.py:202:Start main.py execution
+[2022-02-14 01:28:04,975] main.py:211:Data from src/config/config.ini loaded
+[2022-02-14 01:28:10,669] encription.py:46:Start data encryption 
+[2022-02-14 01:31:16,157] main.py:202:Start main.py execution
+[2022-02-14 01:31:16,167] main.py:211:Data from src/config/config.ini loaded
+[2022-02-14 01:31:26,517] encription.py:46:Start data encryption 
+[2022-02-14 01:33:44,416] main.py:202:Start main.py execution
+[2022-02-14 01:33:44,426] main.py:211:Data from src/config/config.ini loaded
+[2022-02-14 01:33:51,693] encription.py:46:Start data encryption 
+[2022-02-14 01:34:30,142] encription.py:61:Start data decryption 
+[2022-02-14 01:35:36,965] main.py:201:Start main.py execution
+[2022-02-14 01:35:36,970] main.py:210:Data from src/config/config.ini loaded
+[2022-02-14 01:35:46,954] encription.py:46:Start data encryption 
+[2022-02-14 01:40:03,485] main.py:201:Start main.py execution
+[2022-02-14 01:40:03,495] main.py:210:Data from src/config/config.ini loaded
+[2022-02-14 01:40:15,261] encription.py:46:Start data encryption 
+[2022-02-14 01:42:52,879] main.py:201:Start main.py execution
+[2022-02-14 01:42:52,879] main.py:210:Data from src/config/config.ini loaded
+[2022-02-14 01:43:00,917] encription.py:46:Start data encryption 
+[2022-02-14 01:47:14,422] encription.py:46:Start data encryption 
+[2022-02-14 08:46:00,517] main.py:201:Start main.py execution
+[2022-02-14 08:46:00,521] main.py:210:Data from src/config/config.ini loaded
