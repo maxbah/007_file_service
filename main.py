@@ -4,13 +4,20 @@ import os
 import logging
 import logging.config
 import yaml
-from src import file_service
+
+from src.http_server import http_server, create_app
+from aiohttp import web
 from src.config import Config
 from src.crypto.encription import SymmetricEncryption
 from src.crypto.encription import AsymmetricEncryption
+from src.file_service import RawFileService, SignedFileService, EncryptedFileService
 
 symmetric = SymmetricEncryption()
 asymmetric = AsymmetricEncryption()
+
+file_services = RawFileService()
+signed_file_service = SignedFileService(file_services)
+encrypted_file_service = EncryptedFileService(file_services)
 
 
 def read_file():
@@ -20,7 +27,7 @@ def read_file():
     """
     filename = input('Enter file name: ')
     if os.path.exists(filename):
-        content = file_service.read_file(filename)
+        content = file_services.read(filename)
         print(f'Reading - {filename}. File content: {content}')
     else:
         print('File not exist')
@@ -31,7 +38,7 @@ def reed_signed_file():
     :return: None
     """
     filename = input('Please type filename: ')
-    data = file_service.read_signed_file(filename)
+    data = file_services.read(filename)
     logging.info(f" Sign {filename} data: {data}")
     return data
 
@@ -42,7 +49,7 @@ def create():
     :return: None
     """
     content = input('Please type file content: ')
-    file_service.create(content)
+    file_services.create(content)
 
 
 def create_signed_file():
@@ -51,7 +58,13 @@ def create_signed_file():
     """
     content = input('Please type file content: ')
     signer = input("Please type signature alg (md5 ao sha512)")
-    file_service.create_signed_file(content, signer)
+    signed_file_service.write(content, signer)
+
+
+def create_encrypted_file():
+    content = input("Enter file content: ")
+    filename = encrypted_file_service.write(content)
+    print(f"Creating encrypted file {filename} with content: \n{content}")
 
 
 def delete_file():
@@ -61,7 +74,7 @@ def delete_file():
     """
     filename = input('Enter file name to del: ')
     if os.path.isfile(filename):
-        file_service.delete_file(filename)
+        file_services.remove(filename)
         print(f'File - {filename} deleted.')
     else:
         print('File doesnt exist.')
@@ -73,7 +86,7 @@ def list_dir():
     :return: None
     """
     f_path = input('Enter path to listdir: ')
-    l_dirs = file_service.list_dir(f_path)
+    l_dirs = file_services.ls(f_path)
     print(f'{f_path} list dirs: {l_dirs}')
 
 
@@ -82,10 +95,10 @@ def change_dir():
     Function to change directory
     :return: None
     """
-    directory = input('Enter directory: ')
-    if os.path.isdir(directory):
-        file_service.change_dir(directory)
-        cur_dir = file_service.get_cwd()
+    dir = input('Enter directory: ')
+    if os.path.isdir(dir):
+        file_services.cd(dir)
+        cur_dir = file_services.get_cwd()
         print(f'Directory changed to {cur_dir}')
     else:
         print('Directory doesnt exist')
@@ -97,7 +110,7 @@ def get_file_permissions():
     :return: None
     """
     filename = input("Enter file name : ")
-    return file_service.get_file_permissions(filename)
+    return file_services.get_file_permissions(filename)
 
 
 def set_file_permissions():
@@ -108,7 +121,7 @@ def set_file_permissions():
     filename = input("Enter file name : ")
     if os.path.exists(filename):
         permissions = int(input("Input UNIX permissions in oct format (777):"))
-        file_service.set_file_permissions(filename, permissions)
+        file_services.set_file_permissions(filename, permissions)
     else:
         print('File not existed')
 
@@ -118,7 +131,7 @@ def get_cwd():
     Function to get current directory
     :return: None
     """
-    wd = file_service.get_cwd()
+    wd = file_services.get_cwd()
     print(f" Currently we in: {wd}")
 
 
@@ -128,7 +141,7 @@ def get_metadata():
     :return: tuple
     """
     filename = input("Enter file name : ")
-    metadata = file_service.file_services.get_file_metadata(filename)
+    metadata = file_services.read_metadata(filename)
     print(f"Metadata for {filename}: {metadata}")
 
 
@@ -188,7 +201,7 @@ def asymm_decrypt():
     return asymmetric_decrypted_symmetric_key
 
 
-def main():
+def console_main():
     """
     Main function
     :return: None
@@ -214,6 +227,7 @@ def main():
         "reed": read_file,
         "reed_sig_f": reed_signed_file,
         "c_sig_f": create_signed_file,
+        "c_enc_f": create_encrypted_file,
         "delete": delete_file,
         "ls": list_dir,
         "cd": change_dir,
@@ -246,6 +260,11 @@ def main():
         except Exception as ex:
             print(f"Error on {command} execution : {ex}")
     logging.getLogger("telemetry").info("End of main.py execution")
+
+
+def main():
+    app = create_app()
+    web.run_app(app)
 
 
 if __name__ == "__main__":

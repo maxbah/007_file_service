@@ -1,4 +1,5 @@
 from src.utils.python_interface import Singletone
+
 try:
     import configparser
 except ImportError:
@@ -12,6 +13,8 @@ class Config(metaclass=Singletone):
         self.public_exponent = 55555
         self.key_size = 1024
         self.config_data = None
+        self.encryption_type = None
+        self.key_path = None
 
     def load(self, filename):
         self.config_data = configparser.ConfigParser()
@@ -38,3 +41,26 @@ class Config(metaclass=Singletone):
                 self.key_size = self.config_data['CRYPTO_SECTION']['Key_size']
         print("Public_exponent: ", self.public_exponent, ' Key_size: ', self.key_size)
         return self.public_exponent, self.key_size
+
+    def encryption_type(self) -> str:
+        # options 'aes', 'rsa'
+        for key in self.config_data['CRYPTO_SECTION']:
+            if key == 'encryption_type'.lower():
+                self.encryption_type = self.config_data['CRYPTO_SECTION']['encryption_type']
+
+        print("Encryption_type", self.encryption_type)
+        return self.encryption_type
+
+    def signature_dirs(self) -> str:
+        for key in self.config_data['SIGNATURE_SECTION']:
+            if key == 'sig_path'.lower():
+                self.sig_path = self.config_data['SIGNATURE_SECTION']['sig_path']
+        print('sig_path: ', self.sig_path)
+        return self.sig_path
+
+    def key_path(self):
+        for key in self.config_data['CRYPTO_SECTION']:
+            if key == 'key_path'.lower():
+                self.key_path = self.config_data['CRYPTO_SECTION']['key_path']
+        print(' key_path: ', self.key_path)
+        return self.key_path

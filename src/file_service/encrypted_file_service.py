@@ -1,13 +1,13 @@
 import os
-import file_service
 
+from .file_services import FileService
 from typing import Tuple
 from src.config import Config
 from src.crypto import Encryption
 
 
-class EncryptedFileService(file_service.FileService):
-    def __init__(self, wrapped_file_service: file_service.FileService):
+class EncryptedFileService(FileService):
+    def __init__(self, wrapped_file_service: FileService):
         self.wrapped_file_service = wrapped_file_service
 
     def read(self, filename: str) -> str:
@@ -37,7 +37,7 @@ class EncryptedFileService(file_service.FileService):
 
     def remove(self, filename: str) -> None:
         self.wrapped_file_service.remove(filename)
-        encryptor = Encryption.get_encryptor(filename)
+        encryptor = Encryption.get_encryptor_for_key_file(filename)
         key_file_name = encryptor.key_file_name(filename)
         os.remove(key_file_name)
 
